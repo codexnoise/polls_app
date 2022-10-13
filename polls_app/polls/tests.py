@@ -1,3 +1,4 @@
+from django.urls import reverse
 import datetime
 from django.test import TestCase
 from django.utils import timezone
@@ -29,3 +30,12 @@ class QuestionModelTest(TestCase):
         time = timezone.now() - datetime.timedelta(days=1, minutes=1)
         self.question.pub_date = time
         self.assertIs(self.question.was_publish_recently(), False)
+
+
+class QuestionIndexViewTest(TestCase):
+    def test_no_questions(self):
+        """If not exist, an aproppiate message is displayed"""
+        response = self.client.get(reverse("polls:index"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "No polls are available.")
+        self.assertQuerysetEqual(response.context["latest_question_list"], [])
