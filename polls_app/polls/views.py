@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
-from .models import Question, Choice
+from polls.models import Question, Choice
 
 
 # def index(request):
@@ -40,6 +40,10 @@ class IndexView(generic.ListView):
 class DetailsView(generic.DetailView):
     model = Question
     template_name = "polls/details.html"
+
+    def get_queryset(self):
+        """ Excludes any questions that aren't published yet"""
+        return Question.objects.filter(pub_date__lte=timezone.now())
 
 
 class ResultsView(generic.DetailView):

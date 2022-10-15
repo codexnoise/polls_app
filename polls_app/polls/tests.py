@@ -1,3 +1,4 @@
+from urllib import response
 from django.urls import reverse
 import datetime
 from django.test import TestCase
@@ -86,3 +87,20 @@ class QuestionIndexViewTest(TestCase):
         self.assertContains(response, "No polls are available.")
         self.assertQuerysetEqual(
             response.context["latest_question_list"], [])
+
+
+class QuestionDetailViewTest(TestCase):
+    def test_future_question(self):
+        """ The detail view of a question with a pub_date in the future 
+            returns a 404 error not found """
+        future_question = create_question("Future Question", 6)
+        url = reverse("polls:details", args=(future_question.id,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+    def test_past_question(self):
+        """ The question's text of the past question are displayed in the detail view"""
+        past_question = create_question("Past Question", -6)
+        url = reverse("polls:details", args=(past_question.id,))
+        response = self.client.get(url)
+        self.assertContains(response, past_question.question_text)

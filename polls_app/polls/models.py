@@ -15,6 +15,10 @@ class Question(models.Model):
     def was_publish_recently(self):
         return timezone.now() >= self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
+    def number_of_choices(self):
+        self.choices = self.choice_set.count()
+        return self.choices
+
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
