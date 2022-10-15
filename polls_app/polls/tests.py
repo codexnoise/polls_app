@@ -4,7 +4,7 @@ import datetime
 from django.test import TestCase
 from django.utils import timezone
 
-from .models import Question
+from .models import Choice, Question
 
 # TEST OF MODELS
 
@@ -104,3 +104,23 @@ class QuestionDetailViewTest(TestCase):
         url = reverse("polls:details", args=(past_question.id,))
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
+
+
+class QuestionResultViewTest(TestCase):
+    def test_question_not_exists(self):
+        """ If question not exists, returns 404  not found """
+        url = reverse("polls:results", args=(1,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+    def test_question_exists_and_have_choices(self):
+        """ If question id not exists, returns 404  not found """
+        question = create_question("One Question", 0)
+        question.choice_set.create(
+            choice_text="One Question Choice 1", votes=0)
+        question.choice_set.create(
+            choice_text="One Question Choice 2", votes=0)
+        url = reverse("polls:results", args=(question.id,))
+        response = self.client.get(url)
+        print(question.choice_set())
+        self.assertContains(response, question.choice_set.all())
