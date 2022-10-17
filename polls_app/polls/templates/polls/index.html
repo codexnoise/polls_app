@@ -1,9 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'polls/index.css' %}" />
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'polls/reset.css' %}" />
+    {% endcomment %}
     <title>Polls App</title>
   </head>
   <body>
@@ -11,9 +16,6 @@
       <h1>Premios Platzi App</h1>
     </header>
     <main>
-      {% load static %}
-      <link rel="stylesheet" href="{% static 'polls/index.css' %}" />
-
       {% if latest_question_list %}
       <ul>
         {% for question in latest_question_list %}
@@ -31,5 +33,7 @@
       {% endif %}
     </main>
   </body>
-  <footer>Made with ♥ by noise|codex.</footer>
+  <footer>
+    <p>Made with ♥ by noise|codex.</p>
+  </footer>
 </html>
