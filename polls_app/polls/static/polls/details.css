@@ -16,7 +16,7 @@ fieldset {
     padding: 20px 40px;
 }
 
-input[type="submit"] {
+input[type="submit"], button[type="button"] {
     -webkit-text-fill-color: white;
     background-color: hsl(205, 100%, 5%);
     border: 1px solid white;
@@ -27,9 +27,14 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:hover,
-input[type="submit"]:active {
+input[type="submit"]:hover, button[type="button"]:hover,
+input[type="submit"]:active, button[type="button"]:active {
     background: linear-gradient(to right,
             hsl(98, 100%, 62%),
             hsl(204, 100%, 59%));
+}
+
+p{
+        font-size: 28px;
+        padding-top: -50px;
 }
