@@ -7,3 +7,15 @@ h1{
         text-align: center;
     font-size: 38px;
 }
+
+button[type="button"] {
+    -webkit-text-fill-color: white;
+    background-color: hsl(205, 100%, 5%);
+    border: 1px solid white;
+    font-size: 20px;
+    height: 40px;
+    margin-top: 5px;
+    width: 100%;
+    cursor: pointer;
+    float: left;
+}

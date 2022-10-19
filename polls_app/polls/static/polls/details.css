@@ -16,7 +16,7 @@ fieldset {
     padding: 20px 40px;
 }
 
-input[type="submit"], button[type="button"] {
+input[type="submit"] {
     -webkit-text-fill-color: white;
     background-color: hsl(205, 100%, 5%);
     border: 1px solid white;
