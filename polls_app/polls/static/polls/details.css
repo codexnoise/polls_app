@@ -23,7 +23,7 @@ input[type="submit"] {
     font-size: 20px;
     height: 40px;
     margin-top: 20px;
-    width: 100%;
+    width: 25%;
     cursor: pointer;
 }
 
@@ -34,7 +34,91 @@ input[type="submit"]:active, button[type="button"]:active {
             hsl(204, 100%, 59%));
 }
 
-p{
-        font-size: 28px;
-        padding-top: -50px;
+.li-details{
+    border-style: hidden;
+    font-size: 28px;
+    margin-bottom: 5px;
+    padding: 1px;
+    width: 100%;
+}
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 1px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+}
+
+.option-input:hover {
+    background: white;
+}
+
+.option-input:checked {
+    background: green;
+}
+
+.option-input:checked::before {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    content: '\f00c';
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Font Awesome 5 Free';
+}
+
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #40e0d0;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+
+.option-input.radio {
+    border-radius: 50%;
+}
+
+.option-input.radio::after {
+    border-radius: 50%;
+}
+
+@keyframes click-wave {
+    0% {
+        height: 20px;
+        width: 20px;
+        opacity: 0.35;
+        position: relative;
+    }
+
+    100% {
+        height: 75px;
+        width: 75px;
+        margin-left: -30px;
+        margin-top: -30px;
+        opacity: 0;
+    }
 }

@@ -20,11 +20,12 @@
         <input
           type="radio"
           name="choice"
+          class="option-input radio"
           id="choice{{ forloop.counter }}"
           value="{{choice.id}}"
         />
         <label for="choice{{ forloop.counter }}">
-          <p>{{choice.choice_text}}</p>
+          <li class="li-details">{{choice.choice_text}}</li>
         </label>
         <br />
         {% endfor %}
