@@ -20,9 +20,15 @@
       </li>
       {% endfor %}
     </ul>
-    <a href=" {% url 'polls:details' question.id %} "
-      ><button type="button">Votar Otra Vez</button>
-    </a>
-    <a href="/polls/"><button type="button">Inicio XXX</button> </a>
+    <table>
+      <td>
+        <a href=" {% url 'polls:details' question.id %} "
+          ><button type="button">Votar Otra Vez</button>
+        </a>
+      </td>
+      <td>
+        <a href="/polls/"><button type="button">Ir a Inicio</button> </a>
+      </td>
+    </table>
   </body>
 </html>
