@@ -23,11 +23,13 @@
     <table>
       <td>
         <a href=" {% url 'polls:details' question.id %} "
-          ><button type="button">Votar Otra Vez</button>
+          ><button type="button" id="btn-results">Votar Otra Vez</button>
         </a>
       </td>
       <td>
-        <a href="/polls/"><button type="button">Ir a Inicio</button> </a>
+        <a href="/polls/"
+          ><button type="button" id="btn-results">Ir a Inicio</button>
+        </a>
       </td>
     </table>
   </body>

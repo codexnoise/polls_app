@@ -8,10 +8,11 @@ h1{
     font-size: 38px;
 }
 
-button[type="button"] {
+#btn-results {
     -webkit-text-fill-color: white;
     background-color: hsl(205, 100%, 5%);
     border: 1px solid white;
+    margin-top: -5px;
     font-size: 20px;
     height: 40px;
     width: 150px;
