@@ -30,8 +30,8 @@
         <br />
         {% endfor %}
       </fieldset>
-      <a href="/polls/"
-        ><button type="button" return false>Regresar</button>
+      <a href="{% url 'polls:index'%}">
+        <button type="button" return false>Regresar</button>
       </a>
       <input type="submit" value="Votar" />
     </form>
