@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'polls/index.css' %}" />
     <link rel="stylesheet" href="{% static 'polls/details.css' %}" />
     <link rel="stylesheet" href="{% static 'polls/results.css' %}" />
-    <title>Document</title>
+    <title>{{question.question_text}}</title>
   </head>
   <body>
     <h1 class="h1-class">{{question.question_text}}</h1>
@@ -23,12 +23,12 @@
     <table>
       <td>
         <a href=" {% url 'polls:details' question.id %} "
-          ><button type="button" id="btn-results">Votar Otra Vez</button>
+          ><button type="button" id="btn-results">Vote Again</button>
         </a>
       </td>
       <td>
         <a href="{% url 'polls:index'%}">
-          <button type="button" id="btn-results">Ir a Inicio</button>
+          <button type="button" id="btn-results">Go to Home</button>
         </a>
       </td>
     </table>
