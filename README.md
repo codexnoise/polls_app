@@ -20,9 +20,12 @@ Create a virtual environment (PowerShell):
 Install dependencies:  
 `pip install -r requirements.txt`
 
-Make migrations foe the database:  
+Make migrations for the database:  
 `py manage.py makemigrations polls`  
 `py manage.py migration`
+
+Create a super user to access the django´s administration panel and add the questions and choices for the app. Remember that each question should have at least two choices.  
+`py manage.py createsuperuser`
 
 Run the app:  
 `py manage.py runserver`
